@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.cyanogenmod.android.fotakill"
+      android:versionCode="1"
+      android:versionName="1.0">
+
+<uses-sdk android:minSdkVersion="8" android:targetSdkVersion="8"/>
+
+<application android:icon="@drawable/icon" android:label="FOTA Kill" android:name="FOTAKill">
+	<receiver android:permission="com.google.android.providers.gsf.permission.WRITE_GSERVICES" android:exported="true" android:label="FOTAKiller" android:name="FOTAKillReceiver" android:enabled="true">
+		<intent-filter>
+			<action android:name="android.intent.action.BOOT_COMPLETED"/>
+			<action android:name="android.server.checkin.CHECKIN"/>
+		</intent-filter>
+	</receiver>
+</application>
+
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+<uses-permission android:name="com.google.android.providers.gsf.permission.WRITE_GSERVICES" />
+</manifest> 
