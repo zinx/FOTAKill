@@ -16,19 +16,24 @@ public class FOTANotifyReceiver extends BroadcastReceiver {
 	static final int NOTIFY_ID = 1;
 
 	static protected void checkNotification(Context context) {
+		NotificationManager nm = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+
 		SharedPreferences prefs = context.getSharedPreferences(FOTAShow.PREFS, Context.MODE_PRIVATE);
-		if (!prefs.getBoolean(FOTAShow.PREFS_NOTIFY, false))
+		if (!prefs.getBoolean(FOTAShow.PREFS_NOTIFY, false)) {
+			nm.cancel(NOTIFY_ID);
 			return;
+		}
 
 		HashMap<String,String> update = FOTAShow.queryUpdateStatus(context);
 		String token = update.get(FOTAShow.NAME_UPDATE_TOKEN);
-		if (token == null)
+		if (token == null) {
+			nm.cancel(NOTIFY_ID);
 			return;
+		}
 
 		if (token.equals(prefs.getString(FOTAShow.PREFS_LAST_NOTIFY_TOKEN, "")))
 			return;
 
-		NotificationManager nm = (NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
 		Intent fotaActivity = new Intent(context, FOTAShow.class);
 
 		Notification n = new Notification(android.R.drawable.stat_notify_sync_noanim, context.getString(R.string.NotifyOTAAvailable), System.currentTimeMillis());
