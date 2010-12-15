@@ -91,6 +91,9 @@ public class FOTAShow extends Activity
 		View updateView = findViewById(R.id.UpdateView);
 		TextView noUpdateText = (TextView) findViewById(R.id.NoUpdateView);
 
+		SharedPreferences prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE);
+		((CompoundButton) findViewById(R.id.OTAShow)).setChecked(prefs.getBoolean(PREFS_NOTIFY, false));
+
 		HashMap<String,String> update = queryUpdateStatus(this);
 
 		boolean updateAvailable = (update != null);
@@ -107,7 +110,6 @@ public class FOTAShow extends Activity
 			if (update == null) {
 				noUpdateText.setText(getString(R.string.GSFQueryError));
 			} else {
-				SharedPreferences prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE);
 				if (prefs.contains(PREFS_LAST_NOTIFY_TOKEN)) {
 					SharedPreferences.Editor edit = prefs.edit();
 					edit.remove(PREFS_LAST_NOTIFY_TOKEN);
@@ -132,9 +134,6 @@ public class FOTAShow extends Activity
 		((TextView) findViewById(R.id.OTADescription)).setText(Html.fromHtml(update_description));
 		((TextView) findViewById(R.id.OTAUrgency)).setText(update_urgency);
 		((TextView) findViewById(R.id.OTASize)).setText(update_size);
-
-		SharedPreferences prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE);
-		((CompoundButton) findViewById(R.id.OTAShow)).setChecked(prefs.getBoolean(PREFS_NOTIFY, false));
 
 		((Button) findViewById(R.id.OTAUrlButton)).setOnClickListener(this);
 		((TextView) findViewById(R.id.OTAUrl)).setOnLongClickListener(this);
