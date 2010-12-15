@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">FOTA Kill</string>
+<string name="FOTAShow_name">Show OTA</string>
+
+<string name="NotifyOTAAvailable">OTA Pushed</string>
+
+<string name="NoUpdates">There are no OTA updates.</string>
+<string name="GSFQueryError">Error querying GServices.</string>
+
+<string name="OTAPremable"><b>FOR INFORMATIONAL PURPOSES ONLY.</b>\n<b>OTA UPDATES CAN NOT BE APPLIED TO CUSTOM FIRMWARE.</b></string>
+<string name="OTATitleLabel"><b>Title:</b></string>
+<string name="OTADescriptionLabel"><b>Description:</b></string>
+<string name="OTAUrgencyLabel"><b>Urgency:</b></string>
+<string name="OTAUrlButtonLabel">Find URL</string>
+<string name="OTAUrlLabel"><b>URL:</b></string>
+<string name="OTASizeLabel"><b>Size:</b></string>
+<string name="OTAShowLabel">Notify when an OTA is pushed</string>
+
+<string name="OTANoTitle">No title.</string>
+<string name="OTANoDescription">No description.</string>
+<string name="OTANoUrgency"></string>
+<string name="OTANoSize">Unknown</string>
+<string name="OTAUrlUnknown">Unknown</string>
+</resources>
