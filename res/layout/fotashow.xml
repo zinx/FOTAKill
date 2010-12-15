@@ -4,13 +4,14 @@
 	android:layout_width="fill_parent"
 	android:orientation="vertical">
 
+	<TextView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/OTAPreamble" android:text="@string/OTAPremable" android:gravity="center" android:layout_gravity="center_horizontal"/>
+
 	<FrameLayout android:layout_height="fill_parent" android:layout_width="fill_parent" android:layout_weight="1">
 
 		<TextView android:text="@string/NoUpdates" android:layout_gravity="center" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/NoUpdateView"/>
 
 		<ScrollView android:layout_height="fill_parent" android:layout_width="fill_parent" android:id="@+id/UpdateView" android:layout_weight="1" android:visibility="gone">
 			<LinearLayout android:layout_height="fill_parent" android:layout_width="fill_parent" android:orientation="vertical">
-				<TextView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/OTAPreamble" android:text="@string/OTAPremable" android:gravity="center" android:layout_gravity="center_horizontal"/>
 				<TextView android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/OTATitleLabel" android:layout_marginTop="5sp"/>
 				<TextView android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_marginLeft="16dp" android:id="@+id/OTATitle"/>
 				<TextView android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/OTAUrgencyLabel" android:layout_marginTop="5sp"/>
