@@ -93,6 +93,7 @@ public class FOTAShow extends Activity
 
 		SharedPreferences prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE);
 		((CompoundButton) findViewById(R.id.OTAShow)).setChecked(prefs.getBoolean(PREFS_NOTIFY, false));
+		((CompoundButton) findViewById(R.id.OTAShow)).setOnCheckedChangeListener(this);
 
 		HashMap<String,String> update = queryUpdateStatus(this);
 
@@ -137,7 +138,6 @@ public class FOTAShow extends Activity
 
 		((Button) findViewById(R.id.OTAUrlButton)).setOnClickListener(this);
 		((TextView) findViewById(R.id.OTAUrl)).setOnLongClickListener(this);
-		((CompoundButton) findViewById(R.id.OTAShow)).setOnCheckedChangeListener(this);
 
 		setUpdateUrl(savedInstance != null ? savedInstance.getString("url") : null);
 
@@ -268,7 +268,7 @@ public class FOTAShow extends Activity
 		SharedPreferences prefs = getSharedPreferences(PREFS, Context.MODE_PRIVATE);
 		SharedPreferences.Editor edit = prefs.edit();
 		edit.putBoolean(PREFS_NOTIFY, state);
-		edit.commit();
+		edit.apply();
 
 		if (state) {
 			FOTANotifyReceiver.checkNotification(this);
